@@ -126,3 +126,63 @@ sr.reveal(`.home__images`, {delay: 800, origin: 'bottom'})
 sr.reveal(`.logos__img`, {interval: 100})
 sr.reveal(`.value__images, .contact__content`, {origin: 'left'})
 sr.reveal(`.value__content, .contact__images`, {origin: 'right'})
+
+
+
+// Blogs
+
+const sanitizeHTML = (html) => {
+  const parser = new DOMParser();
+  const doc = parser.parseFromString(html, "text/html");
+  return doc.body.textContent || "";
+};
+
+document.addEventListener("DOMContentLoaded", () => {
+  const blogContainer = document.getElementById("blog-container");
+
+  fetch("https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@homestaysamira")
+      .then(response => response.json())
+      .then(data => {
+        const latestArticles = data.items.slice(0, 6);
+        latestArticles.forEach(article => {
+              const blogCard = document.createElement("article");
+              blogCard.classList.add("projects__card");
+              
+              const sanitizedDescription = sanitizeHTML(article.description);
+
+              blogCard.innerHTML = `
+
+              <article class="projects__card">
+                  <div class="projects__image">
+                     <img src="${article.description.match(/<img[^>]+src="([^">]+)"/)[1]}" class="projects__img">
+
+                     <a href="${article.link}" class="projects__button button">
+                        <i class="bx bx-right-arrow-alt "></i>
+                     </a>
+                  </div>
+
+                  <div class="projects__content">
+                     <span class="projects__subtitle"> ${new Date(article.pubDate).toLocaleDateString()}</span>
+                     <h2 class="projects__title">${article.title.substring(0, 50)}...</h2>
+
+                     <p class="projects__description">
+                     ${sanitizedDescription.substring(0, 100)}...
+                     </p>
+                  </div>
+
+                  <div class="projects__buttons">
+                       <i class="bx bx-user"></i>${article.author}
+                     </a>
+
+                     <a href="https://medium.com/@homestaysamira/" target="_blank" class="projects__link">
+                        <i class="bx bx-right-arrow-alt"></i></i> All articles
+                     </a>
+                  </div>
+               </article>
+              `;
+
+              blogContainer.appendChild(blogCard);
+          });
+      })
+      .catch(error => console.error("Error fetching Medium blog posts:", error));
+});
