@@ -92,7 +92,7 @@
 
                     <form action="" class="home__search">
                         <i class="bx bxs-map"></i>
-                        <input type="search" placeholder="Search the location..." class="home__search-input">
+                        <input type="search" placeholder="Get our location..." id="locationSearch" class="home__search-input">
 
                         <button class="button"><a href="https://maps.app.goo.gl/cxmLWDvppTdWBLTk8" target="_blank"
                                 style="all:unset">Search</a></button>
@@ -846,6 +846,13 @@ Hospitality
     <!--=============== SCROLLREVEAL ===============-->
 
     <script>
+document.getElementById('locationSearch').addEventListener('keypress', function(e) {
+  if (e.key === 'Enter') {
+    window.open(`https://maps.app.goo.gl/cxmLWDvppTdWBLTk8`, '_blank');
+  }
+});
+
+
         // This function will be called when button is clicked
         function myFunction() {
             const modal = document.getElementById("bookingModal");
