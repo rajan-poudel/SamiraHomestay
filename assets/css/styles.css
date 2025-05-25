@@ -399,7 +399,7 @@ body.dark-theme{
   border-radius: 10%;
   display: inline-flex;
   align-items: flex-end;
-  bottom: -1.5rem;
+  bottom: -1rem;
   box-shadow: 0 16px 32px hsla(350, 66%, 25%, .25);
 }
 
@@ -462,6 +462,11 @@ body.dark-theme{
 .popular__img{
   border-radius: 1rem;
   margin-bottom: 1rem;
+}
+.gallery__img{
+  border-radius: 1rem;
+  margin-bottom: 1rem;
+  height: 40vh;
 }
 
 .popular__data{
@@ -641,7 +646,7 @@ body.dark-theme{
   width: 266px;
   height: 316px;
   background-color: hsl(228, 24%, 97%);
-  border-radius: 10%;
+  border-radius: 135px 135px 16px 16px;
 }
 
 .contact__img{
@@ -649,7 +654,7 @@ body.dark-theme{
   width: 250px;
   height: 300px;
   overflow: hidden;
-  border-radius: 10%;
+  border-radius: 125px 125px 12px 12px;
   inset: 0;
   margin: auto;
   box-shadow: 0 16px 32px hsla(228 ,66%, 25%, .25);
@@ -948,6 +953,7 @@ body.dark-theme{
   .contact__orbe{
     width: 236px;
     height: 280px;
+    border-radius: 258px 258px 16px 16px;
   }
 
   .subscribe__container{
@@ -1119,7 +1125,7 @@ body.dark-theme{
     width: 472px;
     height: 634px;
     border-radius: 10%;
-    bottom: -2.5rem;
+    bottom: -2rem;
   }
 
   .logos__img{
@@ -1156,7 +1162,7 @@ body.dark-theme{
   .contact__img{
     width: 461px;
     height: 601px;
-    border-radius: 10%;
+    border-radius: 238px 238px 12px 12px;
   }
 
   .value__img img,

@@ -15,7 +15,7 @@ var swiperPopular = new Swiper(".popular__container", {
     slidesPerView: 'auto',
     loop: true,
     autoplay: {
-      delay: 3000,
+      delay: 2000,
     },
     navigation: {
       nextEl: ".swiper-button-next",
